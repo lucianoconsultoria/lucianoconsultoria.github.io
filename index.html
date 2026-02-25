@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central de Atendimento</title>
+
+<style>
+  :root{
+    --primary:#ec4899;
+    --primary2:#be185d;
+    --text:#0f172a;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --bg1:#fdf2f8;
+    --bg2:#ffffff;
+    --shadow:0 18px 50px rgba(2,6,23,.16);
+    --shadow2:0 10px 25px rgba(2,6,23,.12);
+    --radius:22px;
+  }
+
+  *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  body{
+    margin:0;
+    color:var(--text);
+    background: radial-gradient(900px 500px at 12% 0%, rgba(236,72,153,.14), transparent 65%),
+                radial-gradient(900px 500px at 88% 8%, rgba(190,24,93,.12), transparent 70%),
+                linear-gradient(180deg,var(--bg1),var(--bg2));
+  }
+
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 50px}
+
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px;border-radius:18px;background:rgba(255,255,255,.75);
+    border:1px solid rgba(2,6,23,.06);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow2);
+  }
+
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:46px;height:46px;border-radius:14px;background:#fff;
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+    object-fit:contain;
+  }
+
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 12px;border-radius:999px;
+    background:rgba(236,72,153,.10);
+    border:1px solid rgba(236,72,153,.20);
+    color:var(--primary2);font-weight:800;font-size:12px;
+  }
+
+  .hero{
+    margin-top:18px;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:18px;
+  }
+
+  .heroCard,.services,.info{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid rgba(2,6,23,.06);
+    padding:22px;
+  }
+
+  .heroTitle{margin:0;font-size:34px}
+  .heroText{margin-top:10px;color:var(--muted)}
+
+  .ctaRow{display:flex;gap:12px;margin-top:16px}
+
+  .btn{
+    padding:14px 20px;border-radius:999px;
+    background:linear-gradient(135deg,var(--primary2),var(--primary));
+    color:#fff;font-weight:900;text-decoration:none;
+    box-shadow:0 18px 40px rgba(236,72,153,.35);
+  }
+
+  .btnOutline{
+    padding:13px 18px;border-radius:999px;
+    background:rgba(236,72,153,.08);
+    border:1px solid rgba(236,72,153,.22);
+    color:var(--primary2);
+    font-weight:900;text-decoration:none;
+  }
+
+  .serviceGrid{display:grid;gap:12px;margin-top:12px}
+
+  .svc{
+    display:flex;gap:12px;align-items:center;
+    padding:14px;border-radius:18px;
+    background:rgba(236,72,153,.06);
+    border:1px solid rgba(236,72,153,.16);
+    text-decoration:none;color:var(--text);
+  }
+
+  .icon{
+    width:42px;height:42px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(236,72,153,.12);
+    color:var(--primary2);
+    font-weight:900;
+  }
+
+  footer{
+    background:#fff;
+    border-top:1px solid rgba(0,0,0,.08);
+    padding:18px;
+    text-align:center;
+    color:#6b7280;
+    font-size:13px;
+  }
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+  }
+</style>
+</head>
+
+<body>
+
+<script>
+  const WHATSAPP_NUMBER = "5512981087768";
+</script>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+   <img src="https://i.ibb.co/PzxdKP77/4-Kz32-Op-d.webp" class="logo" alt="Logo">
+      <div>
+        <strong>Central de Atendimento</strong>
+        <div style="font-size:12px;color:var(--muted)">Serviços via WhatsApp</div>
+      </div>
+    </div>
+    <div class="pill">Atendimento Online</div>
+  </div>
+
+  <div class="hero">
+    <div class="heroCard">
+      <h2 class="heroTitle">Solicite Atendimento</h2>
+      <p class="heroText">Inicie seu atendimento seguro pelo WhatsApp.</p>
+
+      <div class="ctaRow">
+        <a class="btn" id="btnAtendimento" href="#">Iniciar Atendimento Seguro</a>
+        <a class="btnOutline" id="btnSuporte" href="#">Falar com Suporte</a>
+      </div>
+    </div>
+
+    <div class="services">
+      <strong>Serviços disponíveis</strong>
+
+      <div class="serviceGrid">
+        <a class="svc" id="svc2Via" href="#">
+          <div class="icon">2ª</div>
+          <div>
+            <strong>2ª Via de Boleto</strong>
+            <div style="font-size:12px;color:var(--muted)">Solicite rapidamente</div>
+          </div>
+        </a>
+
+        <a class="svc" id="svcSuporte" href="#">
+          <div class="icon">🛠</div>
+          <div>
+            <strong>Suporte Técnico</strong>
+            <div style="font-size:12px;color:var(--muted)">Ajuda e dúvidas</div>
+          </div>
+        </a>
+
+        <a class="svc" id="svcOutros" href="#">
+          <div class="icon">⋯</div>
+          <div>
+            <strong>Outros Assuntos</strong>
+            <div style="font-size:12px;color:var(--muted)">Fale conosco</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  ©️ <span id="y"></span> Luciano Stutz Consultoria e Treinamentos LTDA •
+  CNPJ: 52.673.116/0001-95 • Todos os direitos reservados
+</footer>
+
+<script>
+  function waLink(numero, servico){
+    const msg = "Olá! Preciso de atendimento sobre: " + servico;
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+  }
+
+  document.getElementById("btnAtendimento").href = "https://wa.me/" + WHATSAPP_NUMBER;
+  document.getElementById("btnSuporte").href    = waLink(WHATSAPP_NUMBER, "Suporte Técnico");
+
+  document.getElementById("svc2Via").href    = waLink(WHATSAPP_NUMBER, "2ª Via de Boleto");
+  document.getElementById("svcSuporte").href = waLink(WHATSAPP_NUMBER, "Suporte Técnico");
+  document.getElementById("svcOutros").href  = waLink(WHATSAPP_NUMBER, "Outros Assuntos");
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
